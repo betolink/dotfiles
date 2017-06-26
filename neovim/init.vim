@@ -110,3 +110,7 @@ endif
 if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
 endif
+
+" Vim Test Strategy
+" make test commands execute using neovim
+let test#strategy = "neovim"
