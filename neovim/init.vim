@@ -3,6 +3,11 @@ set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
+set foldmethod=syntax
+set foldlevelstart=99
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
 let g:mapleader = ","
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -35,7 +40,6 @@ set listchars=tab:__
 set listchars+=trail:.
 
 
-
 ""
 "" Wild settings
 ""
@@ -60,6 +64,8 @@ set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 "
 " " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
+" Ignore node modules
+set wildignore+=*/node_modules/*
 
 " NerdFonts for devicons
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
@@ -69,6 +75,7 @@ if exists('g:loaded_webdevicons')
 endif
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
+" colorscheme OceanicNext
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 " Clear search highlight
@@ -88,3 +95,18 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+" Syntax checkers
+"  Javascript + ReactJS
+
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Override eslint with local version where necessary.
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
