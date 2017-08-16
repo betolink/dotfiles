@@ -2,6 +2,7 @@ set encoding=utf8     " enable icons
 set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
+set guicursor=        " Ubuntu 14.04 temporary fix for guicursor bug
 
 " Enable code folding using space 
 set foldmethod=syntax
@@ -114,6 +115,9 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+" Saving files with C+S
+noremap  <C-s> :w<CR>
 
 " Syntax checkers
 "  Javascript + ReactJS
