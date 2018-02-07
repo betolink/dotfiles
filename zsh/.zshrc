@@ -1,9 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-<<<<<<< HEAD
-export dotoken=033148ef90e702043a37d311302edff85e78e85a36c81716db5af058cd560843
-=======
->>>>>>> ed8fb22c2532682de65210f0fe49ffa08f1b1aff
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each

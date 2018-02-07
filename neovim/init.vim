@@ -3,6 +3,7 @@ set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
+set guicursor=
 set foldmethod=syntax
 set foldlevelstart=99
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -100,6 +101,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
 
 " Vim movement keys only
 inoremap  <Up>     <NOP>
@@ -114,17 +119,41 @@ noremap   <Right>  <NOP>
 " Syntax checkers
 "  Javascript + ReactJS
 
-let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
-" Override eslint with local version where necessary.
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
+let g:ale_sign_column_always = 1
+let g:jsx_ext_required = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" Saving files with C+S
+noremap  <C-s> :w<CR>
+
+" Syntax checkers
+"  Javascript + ReactJS
+
+"let g:jsx_ext_required = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"
+"" Override eslint with local version where necessary.
+"let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+"if matchstr(local_eslint, "^\/\\w") == ''
+"  let local_eslint = getcwd() . "/" . local_eslint
+"endif
+"if executable(local_eslint)
+"  let g:syntastic_javascript_eslint_exec = local_eslint
+"endif
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python':['flake8'],
+\}
+
+" if executable(local_eslint)
+  " let g:syntastic_javascript_eslint_exec = local_eslint
+ " let g:ale_linters = {
+"\   'javascript': [local_eslint],
+"\ }
+"endif
+
+let NERDTreeIgnore = ['\.pyc$']
 
 " Vim Test Strategy
 " make test commands execute using neovim
