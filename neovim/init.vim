@@ -1,21 +1,31 @@
-set encoding=utf8     " enable icons
+set nocompatible
+set encoding=utf8
 set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
-set guicursor=
 set foldmethod=syntax
 set foldlevelstart=99
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
+" Move lines up and down
+nmap <C-S-DOWN> :m +1<CR>
+nmap <C-S-UP> :m -2<CR>
+
 let g:mapleader = ","
 
 call plug#begin('~/.local/share/nvim/plugged')
 exe 'source ~/.config/nvim/plugins.vim'
+exe 'source ~/.config/nvim/cyclecolors.vim'
 " Initialize plugin system
 call plug#end()
 
+set background=dark
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme OceanicNext
+let base16colorspace=256
+set termguicolors
 " Tab settings
 set tabstop=2
 set shiftwidth=2
@@ -34,7 +44,6 @@ au BufNewFile,BufRead *.py
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
-set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -54,17 +63,16 @@ set listchars+=trail:.
 "" Wild settings
 ""
 
-" TODO: Investigate the precise meaning of these settings
 set wildmode=list:longest,list:full
 "
 " " Disable output and VCS files
-set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem,*.pyc
 "
 " " Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 "
 " " Ignore bundler and sass cache
-set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*,*/__pycache__/*
 "
 " " Ignore librarian-chef, vagrant, test-kitchen and Berkshelf cache
 set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
@@ -85,8 +93,6 @@ if exists('g:loaded_webdevicons')
 endif
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
-" colorscheme OceanicNext
-
 nnoremap <Leader>n :NERDTreeToggle<CR>
 " Clear search highlight
 nnoremap <Leader><space> :noh<CR>
@@ -121,8 +127,6 @@ noremap   <Right>  <NOP>
 
 
 let g:ale_sign_column_always = 1
-let g:jsx_ext_required = 0
-" let g:syntastic_javascript_checkers = ['eslint']
 " Saving files with C+S
 noremap  <C-s> :w<CR>
 
@@ -153,7 +157,7 @@ let g:ale_linters = {
 "\ }
 "endif
 
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$','\.class$']
 
 " Vim Test Strategy
 " make test commands execute using neovim
