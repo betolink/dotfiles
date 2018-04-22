@@ -3,9 +3,6 @@
 
 # Remapping ><
 #
-if [ -n "${DISPLAY+x}" ]; then
-  /usr/bin/xmodmap $HOME/.xmodmaprc
-fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
