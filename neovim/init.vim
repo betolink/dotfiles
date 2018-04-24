@@ -4,16 +4,20 @@ set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
+let g:mapleader = ","
+
 set foldmethod=syntax
 set foldlevelstart=99
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Move lines up and down
-nmap <C-S-DOWN> :m +1<CR>
-nmap <C-S-UP> :m -2<CR>
-
-let g:mapleader = ","
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 call plug#begin('~/.local/share/nvim/plugged')
 exe 'source ~/.config/nvim/plugins.vim'
