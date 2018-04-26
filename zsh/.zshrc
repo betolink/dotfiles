@@ -50,4 +50,3 @@ eval "$(pyenv virtualenv-init -)"
 alias net="lsof -i tcp -sTCP:ESTABLISHED"
 alias pg="ps -aux | grep "
 alias bigfiles="sudo find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50"
-

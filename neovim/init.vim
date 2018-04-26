@@ -46,6 +46,10 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
 
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set title                " change the terminal's title
@@ -61,7 +65,6 @@ set list
 set listchars=""
 set listchars=tab:__
 set listchars+=trail:.
-
 
 ""
 "" Wild settings
