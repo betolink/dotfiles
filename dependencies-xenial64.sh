@@ -2,7 +2,7 @@
 # WARNING: Meant to work on Ubuntu 16.04 LTS, this is not an unattended script
 # General dependencies
 sudo apt-get update && sudo apt-get install --no-install-recommends -y make git zsh build-essential \
-htop libssl-dev zlib1g-dev libreadline-dev libsqlite3-dev libncurses5-dev pkg-config \
+htop libssl-dev zlib1g-dev libreadline-dev libsqlite3-dev libncurses5-dev pkg-config silversearcher-ag \
 libncursesw5-dev bzip2 libbz2-dev llvm software-properties-common libevent-dev libtool automake
 
 # oh-my-zsh
