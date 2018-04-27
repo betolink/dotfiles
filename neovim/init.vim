@@ -48,6 +48,7 @@ au BufNewFile,BufRead *.py
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
+  nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
 
 set history=1000         " remember more commands and search history
