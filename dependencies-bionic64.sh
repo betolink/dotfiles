@@ -2,7 +2,7 @@
 # WARNING: Meant to work on Ubuntu 16.04 LTS, this is not an unattended script
 # General dependencies
 sudo apt update && sudo apt install --no-install-recommends -y make git zsh build-essential \
-htop libevent-dev libtool automake silversearcher-ag
+htop libevent-dev libtool automake silversearcher-ag xclip
 
 # oh-my-zsh
 sudo sed -i -e 's/required/sufficient/g' /etc/pam.d/chsh
