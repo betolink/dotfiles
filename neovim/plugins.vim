@@ -13,6 +13,7 @@ Plug 'ddollar/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'

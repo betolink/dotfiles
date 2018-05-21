@@ -5,6 +5,10 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
 let g:mapleader = ","
+" ESC in terminal windows
+tnoremap <Esc> <C-\><C-n>
+" Use the maouse ...
+set mouse=a
 
 set foldmethod=syntax
 set foldlevelstart=99
@@ -101,11 +105,13 @@ if exists('g:loaded_webdevicons')
 endif
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>m :NERDTreeToggle<CR>
 " Clear search highlight
 nnoremap <Leader><space> :noh<CR>
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#sources#jedi#server_timeout = 20
 
 nmap ,bb :BuffergatorToggle<CR>
 
