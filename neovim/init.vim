@@ -7,7 +7,7 @@ syntax enable         " Turn on syntax highlighting allowing local overrides
 let g:mapleader = ","
 " ESC in terminal windows
 tnoremap <Esc> <C-\><C-n>
-" Use the mouse ...
+" Sin city...use the mouse ...
 set mouse=a
 " split the windows below for split and right for vsiplit
 set splitbelow
@@ -52,7 +52,9 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
+    \ let test#python#runner='nose' |
 
+" This searches for the current word using ag and opens the quickfix window
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
   nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -116,7 +118,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
 
-nmap ,bb :BuffergatorToggle<CR>
+" Python for Neovim with pyenv.
+let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -139,9 +142,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" Syntax checkers
-"  Javascript + ReactJS
-
+nmap ,bb :BuffergatorToggle<CR>
 
 let g:ale_sign_column_always = 1
 " Saving files with C+S
@@ -151,8 +152,6 @@ noremap  <C-s> :w<CR>
 "  Javascript + ReactJS
 
 "let g:jsx_ext_required = 0
-"let g:syntastic_javascript_checkers = ['eslint']
-"
 "" Override eslint with local version where necessary.
 "let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 "if matchstr(local_eslint, "^\/\\w") == ''
