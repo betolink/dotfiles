@@ -7,8 +7,11 @@ syntax enable         " Turn on syntax highlighting allowing local overrides
 let g:mapleader = ","
 " ESC in terminal windows
 tnoremap <Esc> <C-\><C-n>
-" Use the maouse ...
+" Use the mouse ...
 set mouse=a
+" split the windows below for split and right for vsiplit
+set splitbelow
+set splitright
 
 set foldmethod=syntax
 set foldlevelstart=99
