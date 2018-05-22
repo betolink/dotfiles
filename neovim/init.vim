@@ -53,6 +53,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
     \ let test#python#runner='nose' |
+    \ call matchadd('Error', '^.*ipdb.*$', -1)
 
 " This searches for the current word using ag and opens the quickfix window
 if executable('ag')
