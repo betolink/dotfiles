@@ -120,7 +120,8 @@ let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
 
 " Python for Neovim with pyenv.
-let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+let g:python_host_prog = '/home/beto/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/home/beto/.pyenv/versions/neovim3/bin/python'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -179,3 +180,6 @@ let NERDTreeIgnore = ['\.pyc$','\.class$']
 " Vim Test Strategy
 " make test commands execute using neovim
 let test#strategy = "neovim"
+
+let g:airline_powerline_fonts = 1
+

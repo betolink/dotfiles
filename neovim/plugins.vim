@@ -16,6 +16,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'janko-m/vim-test'

@@ -1,32 +1,26 @@
 #!/bin/sh
-# WARNING: Meant to work on Ubuntu 16.04 LTS, this is not an unattended script
+# WARNING: Meant to work on Ubuntu 18.04 LTS, this is not an unattended script
 # General dependencies
 sudo apt update && sudo apt install --no-install-recommends -y make git zsh build-essential \
-htop libevent-dev libtool automake silversearcher-ag xclip
-
+htop libevent-dev libtool automake silversearcher-ag xclip libncurses5-dev libssl-dev libreadline-dev \
+zlib1g-dev libbz2-dev libzip-dev bzip2 vim
 # oh-my-zsh
 sudo sed -i -e 's/required/sufficient/g' /etc/pam.d/chsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo "export SHELL=/bin/zsh" >> ~/.profile
-echo "exec /bin/zsh -l" >> ~/.profile
-
-# Docker
-sudo apt-get install -y docker-ce
-sudo usermod -aG docker $USER
 
 # tmux
-wget https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6.tar.gz
-tar -zxvf tmux-2.6.tar.gz
-cd tmux-2.6 && ./configure && make
+wget https://github.com/tmux/tmux/releases/download/2.8/tmux-2.8.tar.gz
+tar -zxvf tmux-2.8.tar.gz
+cd tmux-2.8 && ./configure && make
 sudo make install
 
 # dot files
 cd ~ && git clone https://github.com/betolink/dotfiles.git
 
-mkdir -p ~/.config/
+
 mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" \
-https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+# fonts
+cd .local/share/fonts  && git clone https://github.com/powerline/fonts.git --depth=1
 
 # Pyenv
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
