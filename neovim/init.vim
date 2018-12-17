@@ -58,7 +58,7 @@ au BufNewFile,BufRead *.py
 " This searches for the current word using ag and opens the quickfix window
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
-  nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap P :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
 
 set history=1000         " remember more commands and search history
