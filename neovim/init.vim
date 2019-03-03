@@ -52,7 +52,11 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
-    \ let test#python#runner='nose' |
+    if executable('pytest')
+      let g:test#python#runner = 'pytest'
+    else
+      let g:test#python#runner = 'nose'
+    endif |
     \ call matchadd('Error', '^.*ipdb.*$', -1)
 
 " This searches for the current word using ag and opens the quickfix window
@@ -116,12 +120,22 @@ nnoremap <Leader>m :NERDTreeToggle<CR>
 nnoremap <Leader><space> :noh<CR>
 
 let g:deoplete#enable_at_startup = 1
+" disable autocomplete by default
+" let b:deoplete_disable_auto_complete=1
+" let g:deoplete_disable_auto_complete=1
+
+
+" Disable the candidates in Comment/String syntaxes.
+call deoplete#custom#source('_',
+            \ 'disabled_syntaxes', ['Comment', 'String'])
+
+
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
 
 " Python for Neovim with pyenv.
-let g:python_host_prog = '/home/beto/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/home/beto/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -180,6 +194,9 @@ let NERDTreeIgnore = ['\.pyc$','\.class$']
 " Vim Test Strategy
 " make test commands execute using neovim
 let test#strategy = "neovim"
+let g:test#preserve_screen = 1
+nmap <F5> :TestFile<CR>
+nmap <F6> :TestSuite<CR>
 
 let g:airline_powerline_fonts = 1
 
