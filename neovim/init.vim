@@ -54,6 +54,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
     if executable('pytest')
       let g:test#python#runner = 'pytest'
+      let g:test#python#pytest#options = ' -s '
     else
       let g:test#python#runner = 'nose'
     endif |
