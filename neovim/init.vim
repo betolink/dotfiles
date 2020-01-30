@@ -63,8 +63,11 @@ au BufNewFile,BufRead *.py
 " This searches for the current word using ag and opens the quickfix window
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
-  nnoremap P :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  nnoremap T :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
+
+
+nnoremap <C-r> :Far <C-R><C-W><C-R>  **/*.<C-R>=expand("%:e")<CR><C-Left><C-Left>
 
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
@@ -135,8 +138,7 @@ let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
 
 " Python for Neovim with pyenv.
-let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim/bin/python'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
