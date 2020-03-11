@@ -1,5 +1,6 @@
 " General plugins
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
 Plug 'janko-m/vim-test'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -21,7 +22,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 " Javascript via Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
@@ -38,3 +39,4 @@ Plug 'mhartington/oceanic-next'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' }
