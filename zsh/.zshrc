@@ -20,7 +20,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search debian node npm rbenv vagrant tmux docker)
+plugins=(git history-substring-search debian node npm rbenv vagrant tmux docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,3 +50,5 @@ eval "$(pyenv virtualenv-init -)"
 alias nt="lsof -i tcp -sTCP:ESTABLISHED"
 alias pg="ps -aux | grep "
 alias bigfiles="sudo find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50"
+alias vm="vagrant nsidc"
+alias gittree="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

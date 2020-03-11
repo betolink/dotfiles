@@ -7,11 +7,11 @@ zlib1g-dev libbz2-dev libzip-dev bzip2 vim
 # oh-my-zsh
 sudo sed -i -e 's/required/sufficient/g' /etc/pam.d/chsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+TMUX=3.0
 # tmux
-wget https://github.com/tmux/tmux/releases/download/2.8/tmux-2.8.tar.gz
-tar -zxvf tmux-2.8.tar.gz
-cd tmux-2.8 && ./configure && make
+wget https://github.com/tmux/tmux/releases/download/$TMUX/tmux-$TMUX.tar.gz
+tar -zxvf tmux-$TMUX.tar.gz
+cd tmux-$TMUX && ./configure && make
 sudo make install
 
 # dot files
@@ -32,6 +32,7 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 cd ~/.rbenv && src/configure && make -C src
 
 # Neovim
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update && sudo apt-get install -y neovim
 
 # neovim plugin manager
