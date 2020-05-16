@@ -52,3 +52,19 @@ alias pg="ps -aux | grep "
 alias bigfiles="sudo find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50"
 alias vm="vagrant nsidc"
 alias gittree="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/beto/.pyenv/versions/miniconda3-4.7.12/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/beto/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh" ]; then
+        . "/home/beto/.pyenv/versions/miniconda3-4.7.12/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/beto/.pyenv/versions/miniconda3-4.7.12/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

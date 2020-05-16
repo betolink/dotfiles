@@ -15,6 +15,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ddollar/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'brooth/far.vim'
+Plug 'Chiel92/vim-autoformat'
 " Python via Deoplete + Ale
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -23,7 +24,7 @@ Plug 'davidhalter/jedi-vim'
 " Javascript via Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'HerringtonDarkholme/yats.vim'
