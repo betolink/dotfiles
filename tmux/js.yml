@@ -1,0 +1,14 @@
+session_name: js
+windows:
+- window_name: js dev
+- layout: main-horizontal
+  options:
+    main-pane-height: 60
+  shell_command_before:
+    - cd ${JS_PROJECT}
+  panes:
+    - shell_command:           # pane no. 1
+        - echo ready go!
+        - nvim
+    - echo pane two
+    - npm run dev
