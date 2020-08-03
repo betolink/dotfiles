@@ -30,6 +30,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mxw/vim-jsx'
 " Themes and status bars
+Plug 'chuling/equinusocio-material.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'edkolev/tmuxline.vim'

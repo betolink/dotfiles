@@ -34,10 +34,10 @@ exe 'source ~/.config/nvim/cyclecolors.vim'
 call plug#end()
 
 set background=dark
+set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme OceanicNext
 let base16colorspace=256
-set termguicolors
 " Tab settings
 set tabstop=2
 set shiftwidth=2
@@ -113,8 +113,9 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('_',
             \ 'disabled_syntaxes', ['Comment', 'String'])
 
-let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
+" let g:jedi#force_py_version = 3.8.4
 
 " Python for Neovim with pyenv.
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
@@ -152,3 +153,8 @@ nmap <F6> :TestSuite<CR>
 
 let g:airline_powerline_fonts = 1
 
+" this theme has a buildin lightline/airline theme
+let g:airline_theme = 'equinusocio_material'
+let g:lightline = {
+  \ 'colorscheme': 'equinusocio_material',
+  \ }
