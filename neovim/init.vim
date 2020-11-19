@@ -4,6 +4,12 @@ set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
 let g:mapleader = ","
 " ESC in terminal windows
 tnoremap <Esc> <C-\><C-n>
