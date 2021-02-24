@@ -16,8 +16,10 @@ Plug 'ddollar/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'brooth/far.vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'liuchengxu/vim-which-key'
 " Python via Deoplete + Ale
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
