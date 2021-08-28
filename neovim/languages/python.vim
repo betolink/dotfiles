@@ -10,4 +10,6 @@ if executable('pytest')
 else
    let g:test#python#runner = 'nose'
 endif
+let g:ale_fixers = {'python': ['black', 'isort']}
 call matchadd('Error', '^.*ipdb.*$', -1)
+

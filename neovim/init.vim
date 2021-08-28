@@ -126,6 +126,7 @@ let g:deoplete#sources#jedi#server_timeout = 20
 
 " Python for Neovim with pyenv.
 let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
+let g:isort_command = $HOME . '/.pyenv/versions/neovim3/bin/isort'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -147,6 +148,7 @@ noremap  <C-s> :w<CR>
 let g:ale_linters = {
 \   'python':['flake8'],
 \}
+let g:ale_fix_on_save = 1
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeIgnore = ['^node_modules$', '^tags$', '\.git$[[dir]]', '\.pyc$', '\.idea$[[dir]]', '\.sass-cache$']
