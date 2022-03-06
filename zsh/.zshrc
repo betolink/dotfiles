@@ -20,7 +20,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search debian node npm rbenv vagrant tmux docker docker-compose conda-zsh-completion)
+plugins=(git history-substring-search debian node npm rbenv vagrant tmux docker docker-compose conda-zsh-completion ansible)
 
 source $ZSH/oh-my-zsh.sh
 

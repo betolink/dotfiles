@@ -17,6 +17,8 @@ Plug 'ervandew/supertab'
 Plug 'brooth/far.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'liuchengxu/vim-which-key'
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'edluffy/hologram.nvim'
 " Python via Deoplete + Ale
 Plug 'dense-analysis/ale'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -33,6 +35,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mxw/vim-jsx'
+Plug 'Yggdroot/indentLine'
 " Themes and status bars
 Plug 'chuling/equinusocio-material.vim'
 Plug 'flazz/vim-colorschemes'
