@@ -19,6 +19,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'liuchengxu/vim-which-key'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'edluffy/hologram.nvim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'quarto-dev/quarto-vim'
 " Python via Deoplete + Ale
 Plug 'dense-analysis/ale'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}

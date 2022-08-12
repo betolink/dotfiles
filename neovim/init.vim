@@ -1,5 +1,5 @@
 set nocompatible
-set encoding=utf8
+set encoding=UTF-8
 set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
@@ -52,9 +52,14 @@ set expandtab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 
+
+au BufRead,BufNewFile *.qmd set filetype=rmarkdown
+
 " Python stuff
 autocmd FileType python exe 'source ~/dotfiles/neovim/languages/python.vim'
 autocmd FileType typescript,json,javascript exe 'source ~/dotfiles/neovim/languages/javascript.vim'
+autocmd FileType yaml exe 'source ~/dotfiles/neovim/languages/yaml.vim'
+autocmd FileType rmarkdown,markdown exe 'source ~/dotfiles/neovim/languages/markdown.vim'
 
 " This searches for the current word using ag and opens the quickfix window
 if executable('ag')
@@ -125,8 +130,8 @@ let g:deoplete#sources#jedi#server_timeout = 20
 " let g:jedi#force_py_version = 3.8.4
 
 " Python for Neovim with pyenv.
-let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
-let g:isort_command = $HOME . '/.pyenv/versions/neovim3/bin/isort'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim/bin/python'
+let g:isort_command = $HOME . '/.pyenv/versions/neovim/bin/isort'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -148,11 +153,6 @@ noremap  <C-s> :w<CR>
 let g:ale_linters = {
 \   'python':['flake8'],
 \}
-
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
 
 let g:NERDTreeShowHidden = 1
@@ -172,8 +172,3 @@ let g:airline_theme = 'equinusocio_material'
 let g:lightline = {
   \ 'colorscheme': 'equinusocio_material',
   \ }
-
-
-let g:rnvimr_ex_enable = 1
-
-nmap <space>r :RnvimrToggle<CR>

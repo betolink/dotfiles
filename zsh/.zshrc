@@ -54,14 +54,14 @@ alias gittree="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/llopez/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/beto/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/llopez/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
-        . "/home/llopez/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    if [ -f "/home/beto/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        . "/home/beto/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
     else
-        export PATH="/home/llopez/.pyenv/versions/miniconda3-latest/bin:$PATH"
+        export PATH="/home/beto/.pyenv/versions/miniconda3-latest/bin:$PATH"
     fi
 fi
 unset __conda_setup
