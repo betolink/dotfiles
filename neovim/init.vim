@@ -1,5 +1,5 @@
 set nocompatible
-set encoding=utf8
+set encoding=utf-8
 set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
@@ -34,6 +34,10 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+" Python stuff
+autocmd FileType python exe 'source ~/dotfiles/neovim/languages/python.vim'
+autocmd FileType typescript,json,javascript exe 'source ~/dotfiles/neovim/languages/javascript.vim'
+
 call plug#begin('~/.local/share/nvim/plugged')
 exe 'source ~/.config/nvim/plugins.vim'
 exe 'source ~/.config/nvim/cyclecolors.vim'
@@ -43,8 +47,9 @@ call plug#end()
 set background=dark
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme OceanicNext
-let base16colorspace=256
+" colorscheme OceanicNext
+colorscheme nordfox
+" let base16colorspace=256
 " Tab settings
 set tabstop=2
 set shiftwidth=2
@@ -52,9 +57,7 @@ set expandtab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 
-" Python stuff
-autocmd FileType python exe 'source ~/dotfiles/neovim/languages/python.vim'
-autocmd FileType typescript,json,javascript exe 'source ~/dotfiles/neovim/languages/javascript.vim'
+
 
 " This searches for the current word using ag and opens the quickfix window
 if executable('ag')
@@ -98,7 +101,9 @@ set wildignore+=*.swp,*~,._*
 " Ignore node modules
 set wildignore+=*/node_modules/*
 " NerdFonts for devicon
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+" set guifont=Droid\ Sans\ Mono\ Nerd\ 11
+set guifont=JetBrains\ Mono\ Regular\ Nerd\ Font\ Complete\ 11
 
 if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
@@ -125,8 +130,8 @@ let g:deoplete#sources#jedi#server_timeout = 20
 " let g:jedi#force_py_version = 3.8.4
 
 " Python for Neovim with pyenv.
-let g:python3_host_prog = $HOME . '/.pyenv/versions/neovim3/bin/python'
-let g:isort_command = $HOME . '/.pyenv/versions/neovim3/bin/isort'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/mambaforge/envs/neovim/bin/python'
+let g:isort_command = $HOME . '/.pyenv/versions/mambaforge/neovim/bin/isort'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -177,3 +182,27 @@ let g:lightline = {
 let g:rnvimr_ex_enable = 1
 
 nmap <space>r :RnvimrToggle<CR>
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" Unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+
+let g:minimap_width = 12
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1

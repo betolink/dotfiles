@@ -14,6 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ddollar/nerdcommenter'
 Plug 'ervandew/supertab'
+Plug 'wfxr/minimap.vim'
 Plug 'brooth/far.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'liuchengxu/vim-which-key'
@@ -27,6 +28,10 @@ Plug 'nvie/vim-flake8'
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'quarto-dev/quarto-nvim'
+Plug 'quarto-dev/quarto-vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Javascript via Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
@@ -37,6 +42,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mxw/vim-jsx'
 Plug 'Yggdroot/indentLine'
 " Themes and status bars
+Plug 'arcticicestudio/nord-vim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'chuling/equinusocio-material.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
