@@ -20,7 +20,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search debian node npm rbenv vagrant tmux docker docker-compose conda-zsh-completion ansible)
+plugins=(git history-substring-search npm vagrant tmux docker docker-compose conda-zsh-completion ansible poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,13 +37,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
-
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Alias
 alias nt="lsof -i tcp -sTCP:ESTABLISHED"
@@ -51,22 +45,17 @@ alias pg="ps -aux | grep "
 alias bigfiles="sudo find / -xdev -type f -size +100M -exec du -sh {} ';' | sort -rh | head -n50"
 alias vm="vagrant nsidc"
 alias gittree="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/llopez/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/llopez/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
-        . "/home/llopez/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/llopez/.pyenv/versions/miniconda3-latest/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+alias imgcat="kitty +kitten icat "
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-export PATH="$HOME/.poetry/bin:$PATH"
+
+export PATH="/home/betolink/.local/bin/:$PATH"
+
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+
+eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"

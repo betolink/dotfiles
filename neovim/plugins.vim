@@ -20,17 +20,28 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'liuchengxu/vim-which-key'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'edluffy/hologram.nvim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Python via Deoplete + Ale
 Plug 'dense-analysis/ale'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'nvie/vim-flake8'
-Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim',
+Plug 'Shougo/echodoc.vim'
+Plug 'zchee/deoplete-jedi',
 Plug 'davidhalter/jedi-vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'nvie/vim-flake8'
 Plug 'stsewd/isort.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'quarto-dev/quarto-nvim'
 Plug 'quarto-dev/quarto-vim'
 Plug 'neovim/nvim-lspconfig'
+" Plug 'williamboman/mason.nvim'
+" Plug 'williamboman/mason-lspconfig.nvim'
+" (optional) recommended for syntax highlighting, folding, etc if you're not using nvim-treesitter:
+Plug 'preservim/vim-markdown'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'godlygeek/tabular'  " needed by 'preservim/vim-markdown'
+" (required)
+Plug 'epwalsh/obsidian.nvim'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Javascript via Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

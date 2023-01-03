@@ -12,6 +12,8 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
 let g:mapleader = ","
+
+
 " ESC in terminal windows
 tnoremap <Esc> <C-\><C-n>
 " Sin city...use the mouse ...
@@ -43,6 +45,10 @@ exe 'source ~/.config/nvim/plugins.vim'
 exe 'source ~/.config/nvim/cyclecolors.vim'
 " Initialize plugin system
 call plug#end()
+
+" lua require("mason").setup()
+" lua require("mason-lspconfig").setup()
+" lua require'lspconfig'.pyright.setup{}
 
 set background=dark
 set termguicolors
@@ -116,22 +122,35 @@ nnoremap <Leader>m :NERDTreeToggle<CR>
 nnoremap <Leader>h :noh<CR>
 
 let g:deoplete#enable_at_startup = 1
-" disable autocomplete by default
-" let b:deoplete_disable_auto_complete=1
-" let g:deoplete_disable_auto_complete=1
-
-
-" Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_',
-            \ 'disabled_syntaxes', ['Comment', 'String'])
-
-" let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#sources#jedi#server_timeout = 20
-" let g:jedi#force_py_version = 3.8.4
+let g:deoplete#auto_complete=1
+let g:deoplete#sources#jedi#show_docstring=1
+" " disable autocomplete by default
+" " let b:deoplete_disable_auto_complete=1
+" " let g:deoplete_disable_auto_complete=1
+
+" Or, you could use neovim's floating text feature.
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+highlight link EchoDocFloat Pmenu
+
+" " Disable the candidates in Comment/String syntaxes.
+" call deoplete#custom#source('_',
+"             \ 'disabled_syntaxes', ['Comment', 'String'])
+
+" " let g:deoplete#auto_complete_start_length = 1
+" " let g:jedi#force_py_version = 3.8.4
 
 " Python for Neovim with pyenv.
-let g:python3_host_prog = $HOME . '/.pyenv/versions/mambaforge/envs/neovim/bin/python'
-let g:isort_command = $HOME . '/.pyenv/versions/mambaforge/neovim/bin/isort'
+" if exists("$VIRTUAL_ENV")
+"     let g:python3_host_prog=substitute(system("which -a python | head -n2 | tail -n1"), "\n", '', 'g')
+" else
+"     let g:python3_host_prog=substitute(system("which python"), "\n", '', 'g')
+" endif
+
+let g:python3_host_prog = '/home/betolink/.pyenv/versions/mambaforge/envs/neovim/bin/python'
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
