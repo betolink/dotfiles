@@ -1,0 +1,24 @@
+repos:
+  # Run the setup script to configure Git Secrets patterns
+  - repo: local
+    hooks:
+      - id: setup-git-secrets
+        name: Setup Git Secrets Patterns
+        description: Add custom patterns for AWS, OpenAI, and SSH keys.
+        entry: ./setup-git-secrets.sh
+        language: system
+        stages: [pre-commit]
+        pass_filenames: false
+
+  # Git Secrets hook to scan for secrets
+  - repo: https://github.com/awslabs/git-secrets
+    rev: master
+    hooks:
+      - id: git-secrets
+        name: Git Secrets
+        description: Prevent committing sensitive information like AWS secrets, OpenAI keys, and SSH keys.
+        entry: git secrets --pre_commit_hook
+        language: system
+        types: [text]
+        stages: [pre-commit]
+        verbose: true
